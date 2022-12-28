@@ -48,7 +48,7 @@ fn main() {
 
     // This will not compile because `Structure` does not implement
     // fmt::Display
-    //println!("This struct `{}` won't print...", Structure(3));
+    // println!("This struct `{}` won't print...", Structure(3));
     // TODO ^ Try uncommenting this line
 
     // For Rust 1.58 and above, you can directly capture the argument from a
@@ -57,4 +57,8 @@ fn main() {
     let number: f64 = 1.0;
     let width: usize = 5;
     println!("{number:>width$}");
+
+    let _pi : f64 = 3.141592;
+    let decimals : usize = 3;
+    println!("Value of PI = {0} upto four decimals is {0:.1$}", _pi, decimals);
 }
