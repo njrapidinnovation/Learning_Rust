@@ -29,7 +29,7 @@ struct Rectangle {
     bottom_right: Point,
 }
 
-fn main() {
+fn struct_example() -> Rectangle {
     // Create struct with field init shorthand
     let name = String::from("Peter");
     let age = 27;
@@ -79,4 +79,80 @@ fn main() {
     let Pair(integer, decimal) = pair;
 
     println!("pair contains {:?} and {:?}", integer, decimal);
+    _rectangle
+}
+
+// Create an `enum` to classify a web event. Note how both
+// names and type information together specify the variant:
+// `PageLoad != PageUnload` and `KeyPress(char) != Paste(String)`.
+// Each is different and independent.
+enum WebEvent {
+    // An `enum` may either be `unit-like`,
+    PageLoad,
+    PageUnload,
+    // like tuple structs,
+    KeyPress(char),
+    Paste(String),
+    // or c-like structures.
+    Click { x: i64, y: i64 },
+}
+
+// A function which takes a `WebEvent` enum as an argument and
+// returns nothing.
+fn inspect(event: WebEvent) {
+    match event {
+        WebEvent::PageLoad => println!("page loaded"),
+        WebEvent::PageUnload => println!("page unloaded"),
+        // Destructure `c` from inside the `enum`.
+        WebEvent::KeyPress(c) => println!("pressed '{}'.", c),
+        WebEvent::Paste(s) => println!("pasted \"{}\".", s),
+        // Destructure `Click` into `x` and `y`.
+        WebEvent::Click { x, y } => {
+            println!("clicked at x={}, y={}.", x, y);
+        },
+    }
+}
+
+fn enum_example() {
+    let pressed = WebEvent::KeyPress('x');
+    
+    // `to_owned()` creates an owned `String` from a string slice.
+    // or use String::from("my text");
+    
+    // let s = String::from("my text");
+    // let pasted  = WebEvent::Paste(s);
+    //OR
+    let pasted  = WebEvent::Paste("my text".to_owned());
+    
+    let click   = WebEvent::Click { x: 20, y: 80 };
+    let load    = WebEvent::PageLoad;
+    let unload  = WebEvent::PageUnload;
+
+    inspect(pressed);
+    inspect(pasted);
+    inspect(click);
+    inspect(load);
+    inspect(unload);
+}
+
+
+
+
+fn main(){
+
+    println!();
+    println!("STRUCT EXAMPLE");
+    println!();
+
+    let rectangle : Rectangle = struct_example();
+    let Rectangle { top_left , bottom_right } = &rectangle;
+    let length = top_left.x - bottom_right.x;
+    let breadth = top_left.y;
+    println!("Area of rectangle {}",length*breadth);
+    println!("{:#?}",rectangle);
+
+    println!();
+    println!("ENUM EXAMPLE");
+    println!();
+    enum_example()
 }

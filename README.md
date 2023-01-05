@@ -60,6 +60,24 @@ Rust provides a powerful macro system that allows metaprogramming. As you've see
 - `arrays` like [1, 2, 3]
 - `tuples` like (1, true)
 
+#### Custom Types
+- `structs` like 
+```console
+    // A struct with two fields
+    #[derive(Debug)]
+    struct Point {
+        x: f32,
+        y: f32,
+    }
+ ```
+- `to_owned()` creates an owned `String` from a string slice.
+   ```
+   "my text".to_owned()
+   ```
+
+#### Random Info
+- Rust provides pattern matching via the `match` keyword, which can be used like a C `switch`. The first matching arm is evaluated and all possible values must be covered.
+
 #### Generate Binary
 - A binary can be generated using the Rust compiler: `rustc`.
 
