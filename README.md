@@ -185,6 +185,12 @@ Rust provides a powerful macro system that allows metaprogramming. As you've see
         _mutable_integer = 3;
     }
     ```
+- `FOR LOOP`
+  - `a..b`  -  end exlusive 
+  - `a..=b` - end inlusive 
+  - `iter (no ownership destroyed)` - This borrows each element of the collection through each iteration. Thus leaving the collection untouched and available for reuse after the loop. 
+  - `into_iter (ownership destroyed)` - This consumes the collection so that on each iteration the exact data is provided. Once the collection has been consumed it is no longer available for reuse as it has been 'moved' within the loop.
+  - `iter_mut` - This mutably borrows each element of the collection, allowing for the collection to be modified in place.
 
 #### Random Info
 - Rust provides pattern matching via the `match` keyword, which can be used like a C `switch`. The first matching arm is evaluated and all possible values must be covered.
