@@ -60,6 +60,6 @@ fn main() {
 
     let _pi : f64 = 3.141592;
     let decimals : usize = 3;
-    decimals = 2;
+    //decimals = 2;
     println!("Value of PI = {0} upto four decimals is {0:.1$}", _pi, decimals);
 }

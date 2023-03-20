@@ -31,7 +31,7 @@ struct Rectangle {
 
 fn struct_example() -> Rectangle {
     // Create struct with field init shorthand
-    let name = String::from("Peter");
+    let name = "Peter".to_owned(); //String::from("Peter");
     let age = 27;
     let peter = Person { name, age };
 
