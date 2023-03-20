@@ -222,29 +222,26 @@ Rust provides a powerful macro system that allows metaprogramming. As you've see
 
 - `ASSOCIATED FUNCTIONS AND METHODS`
 
-  - Some functions are connected to a particular type.
-    These come in two forms: 
+  - `Associated Functions` are functions that are defined on a type generally
+    
+    ```console
+    Point::new(3.0, 4.0)
+    ```
 
-    - `Associated` functions are functions that are defined on a type generally
-      
-      ```console
-      Point::new(3.0, 4.0)
-      ```
-      
-    - `Methods` are `associated functions` that are called on a particular instance of a type.
+  - `Methods` are `associated functions` that are called on a particular instance of a type.
 
-      ```console
-      let rectangle = Rectangle {
-        // Associated functions are called using double colons
-        p1: Point::origin(),
-        p2: Point::new(3.0, 4.0),
-      };
+    ```console
+    let rectangle = Rectangle {
+      // Associated functions are called using double colons
+      p1: Point::origin(),
+      p2: Point::new(3.0, 4.0),
+    };
 
-      // Methods are called using the dot operator
-      // Note that the first argument `&self` is implicitly passed, i.e.
-      // `rectangle.perimeter()` === `Rectangle::perimeter(&rectangle)`
-      println!("Rectangle perimeter: {}", rectangle.perimeter());
-      ```
+    // Methods are called using the dot operator
+    // Note that the first argument `&self` is implicitly passed, i.e.
+    // `rectangle.perimeter()` === `Rectangle::perimeter(&rectangle)`
+    println!("Rectangle perimeter: {}", rectangle.perimeter());
+    ```
 
 #### Random Info
 
