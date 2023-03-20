@@ -225,6 +225,12 @@ Rust provides a powerful macro system that allows metaprogramming. As you've see
   - `Associated Functions` are functions that are defined on a type generally
     
     ```console
+
+    struct Point {
+      x: f64,
+      y: f64,
+    }
+
     Point::new(3.0, 4.0)
     ```
 
